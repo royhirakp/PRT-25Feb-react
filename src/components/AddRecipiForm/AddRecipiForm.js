@@ -24,8 +24,8 @@ const AddRecipiForm = () => {
         formData.append('image',imageFile,imageFile.name);
         formData.append('title',title);
         formData.append('author',author);
-        formData.append('ingredients',ingredients);
-        // formData.append('directions',directions);
+        formData.append('ingredients',ingredients);        
+        formData.append('directions',directions);
         console.log(formData)
 
         try {

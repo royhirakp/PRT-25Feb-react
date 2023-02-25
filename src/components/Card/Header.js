@@ -13,7 +13,7 @@ const Header = () => {
 }
   return (
     <div className='headerContainer'>
-        <div>
+        <div className='logobutton' onClick={()=>navgate('/home')}>
             <LocalDiningIcon/>   
             <RestaurantMenuIcon/>   
         </div>
