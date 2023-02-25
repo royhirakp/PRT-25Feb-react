@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import "./AddRecipiForm.css"
+import Loader from '../Card/Loder';
 const AddRecipiForm = () => {
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
@@ -83,7 +84,8 @@ const AddRecipiForm = () => {
                 onChange={(e)=>setDirections(e.target.value)}
                 /><br/>
             <button type="submit" >SAVE POST</button>
-            {loader?<></>:<></>}
+            <p>*NB- give ingredients coma(",") separate, its data type Array. split `(",")`</p>
+            {loader?<Loader/>:<></>}
         </form>
       
     </div>

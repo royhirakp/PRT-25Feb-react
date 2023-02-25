@@ -65,9 +65,12 @@ useEffect(()=>{
         <input type="text"
         onChange={(e)=>setSearchData(e.target.value)}
          placeholder='search here...' />
-        <button onClick={search}>search</button>
+        <button 
+        onClick={search}
+        className="searchbutton" >search</button>
         </div>
       </div>
+      <br/>
         <div className='addRecipiContainer'>
           <button onClick={()=>  navgate('../create')}>
             <LocalPizzaIcon/>add

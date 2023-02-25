@@ -32,7 +32,7 @@ const ResipDetailsPage = () => {
   return (
     <div>
       <Header/>
-      <h1>heading</h1>
+      <h1>{data.title}</h1>
       <div className="datacontainer">
         
         <div className='unitImgecontainer'>
