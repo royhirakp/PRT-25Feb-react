@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className='headerContainer'>
         <div className='logobutton' onClick={()=>navgate('/home')}>
-            <LocalDiningIcon/>   
+            {/* <LocalDiningIcon/>    */}
             <RestaurantMenuIcon/>   
         </div>
 

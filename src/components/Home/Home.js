@@ -6,6 +6,7 @@ import "./Home.css"
 import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [data , setData]=useState([])
+  const [searchData, setSearchData] = useState('')
   const navgate = useNavigate()
 
  
@@ -15,6 +16,23 @@ const Home = () => {
         navgate('/')
     }
 },[])
+
+
+function search(){
+  let result = [];
+  console.log(searchData)
+  console.log(data)
+
+  for(let i =0; i<data.length; i++){
+    if(data[i].title.includes(searchData)){
+      result.push(data[i])
+    }
+  }
+  // console.log(result,"<<<result");
+  setData(result)
+ 
+}
+
 
 
 useEffect(()=>{
@@ -42,8 +60,10 @@ useEffect(()=>{
       <Header/>
       <div className='searchContainer'>
         <div>
-        <input type="text" placeholder='search here...' />
-        <button>search</button>
+        <input type="text"
+        onChange={(e)=>setSearchData(e.target.value)}
+         placeholder='search here...' />
+        <button onClick={search}>search</button>
         </div>
       </div>
         <div className='addRecipiContainer'><button onClick={()=>  navgate('../create')}>add recipi</button></div>
