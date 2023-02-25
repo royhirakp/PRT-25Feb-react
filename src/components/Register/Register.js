@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import { Link } from "react-router-dom";
-// import Loader from "../Loader"
+import Loader from "../Card/Loder";
 import './Register.css'
 const Register = (props) => {
   const [inputEmail, setInputaEmail] = useState('');
@@ -11,6 +11,8 @@ const Register = (props) => {
   const [passwordLengthStatus, setpasswordLengthStatus] = useState(true);
   const [axiosErr, setAxiosErr] = useState('');
   const [susecssMess, setSuccessMsg ]= useState ('');
+  const [TandS , setTandS] = useState(false)
+  const [tandSError,setTandSError]  = useState(false)
   const [loader, setLoader] = useState(false);
 
   useEffect(() => {  // useEffect for password and confurm pass word 
@@ -34,12 +36,15 @@ const Register = (props) => {
             email: inputEmail,
             password: inputPassword
           } 
-          console.log(body,"body")
-          const resp = await axios.post('https://prt-25feb-nodejs.onrender.com/user/singup', body)  
-          console.log(resp)    
-          console.log(resp.data.status,"resp.data.status")
-          setSuccessMsg(resp.data.status)
-          setAxiosErr('')
+          
+          if(TandS){
+            setTandSError(false)
+            const resp = await axios.post('https://prt-25feb-nodejs.onrender.com/user/singup', body)  
+            console.log(resp)    
+            setSuccessMsg(resp.data.status)
+            setAxiosErr('')
+            
+          }else setTandSError(true)
         } catch (error) {
           setAxiosErr(error.response.data.status)
           setSuccessMsg('')
@@ -69,7 +74,10 @@ const Register = (props) => {
         <br />
 
           <div className="tramsAndCondition">
-            <input type="checkbox" id="inputckeckbox" /> 
+            <input 
+            onChange={(e)=>setTandS(e.target.checked)}
+            type="checkbox" 
+            id="inputckeckbox" /> 
             <p>i agree with <a href="https://www.business-standard.com/terms-conditions">TERMS & CONDITION</a>
               </p>
           </div>
@@ -80,7 +88,8 @@ const Register = (props) => {
       
       {susecssMess ? <h4 style={{color: "green"}}>{susecssMess}</h4> : <></>}
       {axiosErr ? <h4 style={{color: "red"}}>{axiosErr}</h4> :<></>}
-      {/* {loader?<Loader/>:<></>} */}
+      {loader?<Loader/>:<></>}
+      {tandSError?<h3>please go through the T & C / Click on the checkbox</h3>:""}
       {/* <img></img> */}
     </div>
   )

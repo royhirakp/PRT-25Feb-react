@@ -5,7 +5,6 @@ import './ResipDetailsPage.css'
 const ResipDetailsPage = () => {
     const [data, setdta] = useState({});
     const [buttnStatus, setBstatus] = useState(false);
-
     useEffect(()=>{
         async function datafunction () {
             // setLoader(true)

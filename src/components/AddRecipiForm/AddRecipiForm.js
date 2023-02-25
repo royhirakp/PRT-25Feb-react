@@ -83,7 +83,7 @@ const AddRecipiForm = () => {
                 onChange={(e)=>setDirections(e.target.value)}
                 /><br/>
             <button type="submit" >SAVE POST</button>
-
+            {loader?<></>:<></>}
         </form>
       
     </div>
