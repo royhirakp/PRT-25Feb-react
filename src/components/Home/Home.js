@@ -3,12 +3,14 @@ import axios from 'axios'
 import Header from '../Card/Header'
 import RecipiCard from '../Card/RecipiCard'
 import "./Home.css"
+import Loader from '../Card/Loder'
 import { useNavigate } from "react-router-dom";
 import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
 const Home = () => {
   const [data , setData]=useState([])
   const [searchData, setSearchData] = useState('')
-  const navgate = useNavigate()
+  const navgate = useNavigate();
+  let [loder, setLoader] = useState(false)
 
  
 
@@ -21,8 +23,8 @@ const Home = () => {
 
 function search(){
   let result = [];
-  console.log(searchData)
-  console.log(data)
+  // console.log(searchData)
+  // console.log(data)
 
   for(let i =0; i<data.length; i++){
     if(data[i].title.includes(searchData)){
@@ -38,7 +40,7 @@ function search(){
 
 useEffect(()=>{
   async function datafunction () {
-      // setLoader(true)
+      setLoader(true)
       try {
           const config = {
               headers: {
@@ -51,7 +53,7 @@ useEffect(()=>{
       } catch (error) {
           console.log(error)
       }
-      // setLoader(false)
+      setLoader(false)
   }
   datafunction()
 },[])
@@ -89,6 +91,7 @@ useEffect(()=>{
           })
         }
       </div>
+      {loder?<Loader/>:<></>}
     </div>
   )
 }

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../Card/Header'
 import axios from 'axios'
+import Loader from '../Card/Loder'
 import './ResipDetailsPage.css'
 const ResipDetailsPage = () => {
     const [data, setdta] = useState({});
     const [buttnStatus, setBstatus] = useState(false);
+    const [loader, setLoader] = useState(false)
     useEffect(()=>{
         async function datafunction () {
-            // setLoader(true)
+            setLoader(true)
             try {
                 const config = {
                     headers: {
@@ -20,7 +22,7 @@ const ResipDetailsPage = () => {
             } catch (error) {
                 console.log(error)
             }
-            // setLoader(false)
+            setLoader(false)
         }
         datafunction()
       },[])
@@ -69,6 +71,7 @@ const ResipDetailsPage = () => {
             
         </div>
       </div>
+      {loader?<Loader/>:<></>}
     </div>
   )
 }
