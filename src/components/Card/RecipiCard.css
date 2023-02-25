@@ -1,0 +1,25 @@
+.RecipiCardcontainetr{
+    width: 200px;
+    border: 1px solid;
+}
+.reacipiHeading{
+    /* position: relative;
+    top: 50px;
+    z-index: 50px; */
+}
+.RecipiCardcontainetr{
+    /* margin: 20px; */
+    cursor: pointer;
+}
+
+.RecipiCardcontainetr:hover{
+    /* margin: 20px; */
+    /* cursor: pointer; */
+    border: 2px solid red;
+}
+.RecipiCardcontainetr h4{
+    display: inline;
+}
+img{
+    width: 100%;
+}

@@ -1,10 +1,14 @@
-import React from 'react'
-
-const Test = () => {
+// import React, { useContext } from 'react'
+// import { LoginContaxt } from '../Contexts/LoginContaxt'
+const Test = (props) => {
+  // const {a,b, seta} = useContext(LoginContaxt)
+  // console.log(a)
   return (
     <div>
-      test apppppppppppppppp
-      <h1>test dfor r hirskk</h1>
+      hello
+      {/* test apppppppppppppppp{a} */}
+      {/* <button onClick={()=>seta("changeddddd broo")}>setA</button> */}
+      {/* <h1>{b}</h1> */}
     </div>
   )
 }

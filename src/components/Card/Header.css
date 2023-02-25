@@ -1,0 +1,13 @@
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin:20px 65px 0 65px;
+}
+.headerContainer div{
+    border: 1px solid;
+}
+
+
+
