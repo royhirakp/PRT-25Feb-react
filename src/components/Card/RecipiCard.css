@@ -3,12 +3,12 @@
     border: 1px solid;
 }
 .reacipiHeading{
-    /* position: relative;
+    position: relative;
     top: 50px;
-    z-index: 50px; */
+    z-index: 50px;
 }
 .RecipiCardcontainetr{
-    /* margin: 20px; */
+    margin: 20px;
     cursor: pointer;
 }
 

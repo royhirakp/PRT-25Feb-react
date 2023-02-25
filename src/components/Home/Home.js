@@ -4,6 +4,7 @@ import Header from '../Card/Header'
 import RecipiCard from '../Card/RecipiCard'
 import "./Home.css"
 import { useNavigate } from "react-router-dom";
+import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
 const Home = () => {
   const [data , setData]=useState([])
   const [searchData, setSearchData] = useState('')
@@ -58,6 +59,7 @@ useEffect(()=>{
   return (
     <div>
       <Header/>
+      
       <div className='searchContainer'>
         <div>
         <input type="text"
@@ -66,7 +68,11 @@ useEffect(()=>{
         <button onClick={search}>search</button>
         </div>
       </div>
-        <div className='addRecipiContainer'><button onClick={()=>  navgate('../create')}>add recipi</button></div>
+        <div className='addRecipiContainer'>
+          <button onClick={()=>  navgate('../create')}>
+            <LocalPizzaIcon/>add
+            </button>
+            </div>
         <h1>Allrecipites</h1>
       <div className='allrecipies'>
         {
